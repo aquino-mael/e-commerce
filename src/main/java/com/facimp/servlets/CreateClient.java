@@ -31,7 +31,7 @@ public class CreateClient extends HttpServlet {
         client.setDistrict("Parque das estrelas");
         client.setFinishDate(Calendar.getInstance());
         
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("createClient");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerceDB");
         EntityManager manager = factory.createEntityManager();
         
         manager.getTransaction().begin();

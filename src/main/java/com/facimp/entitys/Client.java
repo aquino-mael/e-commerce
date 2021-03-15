@@ -6,12 +6,12 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "clients")
+@Table(name = "CLIENTS")
 public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(name = "finish_date", nullable = false)
+    @Column(name = "FINISH_DATE",nullable = false)
     @Temporal(TemporalType.DATE)
     private Calendar finishDate;
     @Column(nullable = false)
