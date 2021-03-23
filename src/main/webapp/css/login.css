@@ -10,8 +10,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* color: #85cb33; */
-    color: #0f0;
+    color: #5d8aa8;
+    /* color: #0f0; */
 }
 
 .card-title {
@@ -45,8 +45,9 @@ input[type="email"],
 input[type="password"],
 input[type="text"] {
     background: #1a2226;
-    border: 2px solid #0f0;
-    color: #0f0;
+    border: 2px solid;
+    color: #94a0ac;
+    /* color: #0f0; */
     border-radius: 10px;
     margin-bottom: 25px;
 }
@@ -57,14 +58,16 @@ input[type="text"]:focus {
     outline: none;
     border: none;
     background: #1a2226;
-    color: #0f0;
+    color: #4682b4;
+    /* color: #0f0; */
     margin: 0;
 
 }
 
 .btn {
     width: 100%;
-    background: #0f0 !important;
+    /* background: #0f0 !important; */
+    background: #4682b4 !important;
     color: #1a2226;
     border: none;
     font-size: 14px;
