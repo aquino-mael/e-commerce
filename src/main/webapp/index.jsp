@@ -1,4 +1,5 @@
-<!doctype html>
+<%@ page language="java" contentType="text/html; charset=utf=8" pageEncoding="utf-8"%>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -37,7 +38,7 @@
                                     <path fill-rule="evenodd"
                                         d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
                                 </svg>
-                                Início
+                                InÃ­cio
                             </a>
                         </li>
                         <li class="nav-item">
@@ -81,7 +82,9 @@
         <div class="container-fluid p-5">
             <div class="jumbotron text-white">
                 <h1 class="display-3">Call to action</h1>
-                <p class="lead">Frase da loja</p>
+                <p class="lead">
+                    <% out.println("default phrase"); %>
+                </p>
                 <p class="lead mt-5">
                     <a class="btn btn-secondary btn-lg" href="Jumbo action link" role="button">Button</a>
                 </p>
