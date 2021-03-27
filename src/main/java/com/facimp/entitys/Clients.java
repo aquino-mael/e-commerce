@@ -194,7 +194,15 @@ public class Clients implements Serializable {
     public void setCartsCollection(Collection<Carts> cartsCollection) {
         this.cartsCollection = cartsCollection;
     }
-
+    
+    public void setpassword(String password) {
+        this.password = password ;
+    }
+    
+     public String getpassword() {
+        return this.password;
+     }
+        
     @Override
     public int hashCode() {
         int hash = 0;

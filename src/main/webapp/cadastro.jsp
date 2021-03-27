@@ -33,6 +33,7 @@
 
                                 <label for="inputEmail">Email</label>
                                 <input type="email"
+                                name="email"
                                 class="form-control form-control-sm"
                                 id="inputEmail">
 
