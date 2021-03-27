@@ -33,12 +33,11 @@
 
                                 <label for="inputEmail">Email</label>
                                 <input type="email"
-                                name="email"
                                 class="form-control form-control-sm"
                                 id="inputEmail">
 
                                 <label for="inputTel">Telefone</label>
-                                <input type="number"
+                                <input type="text"
                                 name="phone"
                                 class="form-control form-control-sm"
                                 id="inputTel">
@@ -62,7 +61,7 @@
                                 id="inputBairro">
 
                                 <label for="inputCep">CEP</label>
-                                <input type="number"
+                                <input type="text"
                                 name="zipCode"
                                 class="form-control form-control-sm"
                                 id="inputCep">
