@@ -41,49 +41,64 @@ public class Clients implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "name")
     private String name;
+    
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "email")
     private String email;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "finish_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishDate;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "street")
     private String street;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "zip_code")
     private int zipCode;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "district")
     private String district;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
     @Column(name = "uf")
     private String uf;
+    
     @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone format, should be as xx xxxxx-xxxx")
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 17)
     @Column(name = "phone")
     private String phone;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClient")
     private Collection<Carts> cartsCollection;
+    
+    @NotNull
+    @Basic(optional = false)
+    @Size(min=1, max=140)
+    @Column(name="password")
+    private String password;
 
     public Clients() {
     }
