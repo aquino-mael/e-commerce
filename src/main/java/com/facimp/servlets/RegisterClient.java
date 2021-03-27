@@ -19,7 +19,15 @@ public class RegisterClient extends HttpServlet {
         
         Clients client =  new Clients();
         
-        client.setName(req.getParameter("name"));
+        log(req.getParameter("name"));
+        log(req.getParameter("email"));
+        log(req.getParameter("phone"));
+        log(req.getParameter("street"));
+        log(req.getParameter("number"));
+        log(req.getParameter("district"));
+        log(req.getParameter("zipCode"));
+        log(req.getParameter("uf"));
+        log(req.getParameter("password"));
         
         res.sendError(500);    
     }
