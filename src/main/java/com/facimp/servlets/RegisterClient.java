@@ -2,7 +2,6 @@ package com.facimp.servlets;
 
 import com.facimp.entitys.Clients;
 import java.io.IOException;
-import java.io.Writer;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,11 +21,7 @@ public class RegisterClient extends HttpServlet {
         
         client.setName(req.getParameter("name"));
         
-        log(client.getName());
-        
-        res.sendError(404);
-       
-    
+        res.sendError(500);    
     }
 
 }
