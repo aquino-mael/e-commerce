@@ -2,6 +2,10 @@ package com.facimp.servlets;
 
 import com.facimp.entitys.Clients;
 import java.io.IOException;
+import java.util.Calendar;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,25 +23,31 @@ public class RegisterClient extends HttpServlet {
         
         Clients client =  new Clients();
         
+        // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
         client.setName(req.getParameter("name"));
         client.setEmail(req.getParameter("email"));
         client.setPhone(req.getParameter("phone"));
-        client.setStreet(req.getParameter("street") + ", número " + req.getParameter("numero"));
+        client.setStreet(req.getParameter("street") + ", número " + req.getParameter("number"));
         client.setDistrict(req.getParameter("district"));
         client.setZipCode(Integer.parseInt(req.getParameter("zipCode")));
         client.setUf(req.getParameter("uf"));
-        client.setpassword(req.getParameter("password"));
+        client.setPassword(req.getParameter("password"));
+        client.setFinishDate(Calendar.getInstance().getTime());
         
-        log(client.getName());
-        log(client.getEmail());
-        log(client.getPhone());
-        log(client.getStreet());
-        log(client.getDistrict());
-        log("" + client.getZipCode());
-        log(client.getUf());     
-        log(client.getpassword());
-
-        res.sendError(500);    
+        // Inicialização da Percistence Unit
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
+        EntityManager manager = factory.createEntityManager();
+        
+        // Persistêcia dos dados do cliente na tabela
+        manager.getTransaction().begin();
+        manager.persist(client);
+        manager.getTransaction().commit();
+        
+        // Encerramento das conexões
+        manager.close();
+        factory.close();
+        
+        res.sendRedirect("/");
     }
 
 }

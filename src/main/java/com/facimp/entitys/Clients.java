@@ -44,7 +44,7 @@ public class Clients implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
     
@@ -63,7 +63,7 @@ public class Clients implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 255)
     @Column(name = "street")
     private String street;
     
@@ -74,7 +74,7 @@ public class Clients implements Serializable {
     
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 255)
     @Column(name = "district")
     private String district;
     
@@ -96,7 +96,7 @@ public class Clients implements Serializable {
     
     @NotNull
     @Basic(optional = false)
-    @Size(min=1, max=140)
+    @Size(min=1, max=255)
     @Column(name="password")
     private String password;
 
@@ -195,11 +195,11 @@ public class Clients implements Serializable {
         this.cartsCollection = cartsCollection;
     }
     
-    public void setpassword(String password) {
+    public void setPassword(String password) {
         this.password = password ;
     }
     
-     public String getpassword() {
+     public String getPassword() {
         return this.password;
      }
         

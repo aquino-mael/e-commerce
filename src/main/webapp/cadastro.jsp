@@ -29,55 +29,67 @@
                                 <input type="text"
                                 name="name"
                                 class="form-control form-control-sm"
-                                id="inputNome">
+                                id="inputNome"
+                                required>
 
                                 <label for="inputEmail">Email</label>
                                 <input type="email"
                                 name="email"
                                 class="form-control form-control-sm"
-                                id="inputEmail">
+                                id="inputEmail"
+                                required>
 
                                 <label for="inputTel">Telefone</label>
-                                <input type="text"
+                                <input type="tel"
                                 name="phone"
                                 class="form-control form-control-sm"
-                                id="inputTel">
+                                id="inputTel"
+                                maxlength="17"
+                                required>
 
                                 <label for="inputRua">Rua</label>
                                 <input type="text"
                                 name="street"
                                 class="form-control form-control-sm"
-                                id="inputRua">
+                                id="inputRua"
+                                required>
 
-                                <label for="inputNum">Número</label>
+                                <label for="inputNum">Número da casa</label>
                                 <input type="number"
                                 name="number"
                                 class="form-control form-control-sm"
-                                id="inputNum">
+                                id="inputNum"
+                                required>
 
                                 <label for="inputBairro">Bairro</label>
                                 <input type="text"
                                 name="district"
                                 class="form-control form-control-sm"
-                                id="inputBairro">
+                                id="inputBairro"
+                                required>
 
                                 <label for="inputCep">CEP</label>
-                                <input type="text"
+                                <input type="tel"
                                 name="zipCode"
                                 class="form-control form-control-sm"
-                                id="inputCep">
+                                id="inputCep"
+                                maxlength="8"
+                                required>
 
-                                <label for="inputUf">Estado</label>
+                                <label for="inputUf">UF</label>
                                 <input type="text"
                                 name="uf"
                                 class="form-control form-control-sm"
-                                id="inputCep">
+                                id="inputUf"
+                                maxlength="2"
+                                required>
 
                                 <label for="inputPassword">Senha</label>
                                 <input type="password"
                                 name="password"
                                 class="form-control form-control-sm"
-                                id="inputPassword">
+                                id="inputPassword"
+                                required>
 
                                 <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
                             </div>
