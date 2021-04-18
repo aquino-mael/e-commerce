@@ -1,8 +1,9 @@
 
 package com.facimp.servlets;
 
-import com.facimp.entitys.Products;
+import com.facimp.entitys.Clients;
 import java.io.IOException;
+import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -13,22 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "RegisterProducts", urlPatterns = {"/RegisterProducts"})
-public class RegisterProducts extends HttpServlet {
+@WebServlet(name = "Carts", urlPatterns = {"/Carts"})
+public class Carts extends HttpServlet {
 
-  
-
-  
-      @Override
-    protected void doPost(HttpServletRequest requisicao, HttpServletResponse resposta)
+   
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         
-        Products product =  new Products();
+        Clients client =  new Clients();
         
         // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
-        product.setName(requisicao.getParameter("name"));
-        product.setPrice(Float.parseFloat(requisicao.getParameter("price")));
-        product.setStatus(requisicao.getParameter("status"));
+    
         
         // Inicialização da Percistence Unit
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
@@ -36,15 +33,14 @@ public class RegisterProducts extends HttpServlet {
         
         // Persistêcia dos dados do cliente na tabela
         manager.getTransaction().begin();
-        manager.persist(product);
+        manager.persist(client);
         manager.getTransaction().commit();
         
         // Encerramento das conexões
         manager.close();
         factory.close();
         
-        resposta.sendRedirect("/");
+        res.sendRedirect("/");
     }
+
 }
-  
-   
