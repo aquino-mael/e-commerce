@@ -21,7 +21,7 @@
                     <h1 class="card-title text-center mb-4">Nova Categoria</h1>
                     <div class="card-text">
                         <form class="p-2" align="start" action="RegisterCategory" method="POST">
-                            <label class="mb-2" for="inputPassword">Nome da categoria</label>
+                            <label class="mb-2" for="inputName">Nome da categoria</label>
                             <input type="text"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
                                 id="inputName"
@@ -30,7 +30,7 @@
                                 required
                             >
                             <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Entrar</button>
+                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Criar Categoria</button>
                             </div>
                         </form>
                     </div>
