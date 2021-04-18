@@ -20,7 +20,7 @@
                 <div class="card-body bg-dark text-white">
                     <h1 class="card-title text-center mb-4">CADASTRO</h1>
                     <div class="card-text">
-                        <form class="p-2" align="start" action="login" method="POST">
+                        <form class="p-2" align="start" action="RegisterClient" method="POST">
                             <label class="mb-2" for="inputPassword">Nome</label>
                             <input type="text"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
