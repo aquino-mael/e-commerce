@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Login</title>
+    <title>Cadastro</title>
 </head>
 
 <body class="bg-dark">
@@ -18,10 +18,18 @@
         <div class="d-flex justify-content-center align-items-center flex-column">
             <div class="card mx-auto bg-dark ">
                 <div class="card-body bg-dark text-white">
-                    <h1 class="card-title text-center mb-4">Login</h1>
+                    <h1 class="card-title text-center mb-4">CADASTRO</h1>
                     <div class="card-text">
-                        <form class="p-2" align="start" action="login" method="POST">
-                            <label class="mb-2" for="inputEmail">Email</label><br>
+                        <form class="p-2" align="start" action="RegisterClient" method="POST">
+                            <label class="mb-2" for="inputPassword">Nome</label>
+                            <input type="text"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputName"
+                                placeholder="Insira seu nome"
+                                name="name"
+                                required
+                            >
+                            <label class="mb-2" for="inputEmail">Email</label>
                             <input type="email"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
                                 id="inputEmail"
@@ -37,9 +45,8 @@
                                 name="password"
                                 required
                             >
-                            Não tem uma conta? <a href="./login.jsp" class="text-decoration-none">Cadastre-se</a>
                             <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-secondary btn-block mt-2">Entrar</button>
+                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Entrar</button>
                             </div>
                         </form>
                     </div>
