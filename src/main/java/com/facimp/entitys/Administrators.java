@@ -43,6 +43,10 @@ public class Administrators implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "email")
     private String email;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAdministrator")
     private Collection<Products> productsCollection;
 
@@ -76,6 +80,14 @@ public class Administrators implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public String getPassword() {
+        return this.password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Collection<Products> getProductsCollection() {

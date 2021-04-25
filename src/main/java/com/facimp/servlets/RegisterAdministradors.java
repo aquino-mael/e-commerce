@@ -28,6 +28,7 @@ public class RegisterAdministradors extends HttpServlet {
         // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
         administrador.setName(req.getParameter("name"));
         administrador.setEmail(req.getParameter("email"));
+        administrador.setPassword(req.getParameter("password"));
   
         // Inicialização da Percistence Unit
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
