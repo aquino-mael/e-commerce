@@ -29,12 +29,28 @@
                                 name="name"
                                 required
                             >
+                            <label class="mb-2" for="inputEmail">Email</label>
+                            <input type="email"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputEmail"
+                                placeholder="Insira seu email"
+                                name="email"
+                                required
+                            >
                             <label class="mb-2" for="inputPhone">Telefone</label>
                             <input type="number"
                                 class="form-control form-control-sm mb-4 bg-dark text-white"
                                 id="inputPhone"
                                 placeholder="Insira o seu telefone"
                                 name="phone"
+                                required
+                            >
+                            <label class="mb-2" for="inputDistrict">Bairro</label>
+                            <input type="text"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputDistrict"
+                                placeholder="Insira seu bairro"
+                                name="district"
                                 required
                             >
                             <label class="mb-2" for="inputStreet">Rua</label>
@@ -45,20 +61,28 @@
                                 name="street"
                                 required
                             >
-                            <label class="mb-2" for="inputZipCode">CEP</label>
+                            <label class="mb-2" for="inputNumber">Número</label>
                             <input type="number"
-                                class="form-control form-control-sm mb-4 bg-dark text-white"
-                                id="inputZipCode"
-                                placeholder="Insira o CEP"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputNumber"
+                                placeholder="Insira o Número"
+                                name="number"
+                                required
+                            >
+                            <label class="mb-2" for="inputCep">CEP</label>
+                            <input type="number"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputCep"
+                                placeholder="Insira seu CEP"
                                 name="zipCode"
                                 required
                             >
-                            <label class="mb-2" for="inputEmail">Email</label>
-                            <input type="email"
+                            <label class="mb-2" for="inputUf">UF</label>
+                            <input type="text"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
-                                id="inputEmail"
-                                placeholder="Insira seu email"
-                                name="email"
+                                id="inputUf"
+                                placeholder="Insira o UF"
+                                name="uf"
                                 required
                             >
                             <label class="mb-2" for="inputPassword">Senha</label>
@@ -69,9 +93,10 @@
                                 name="password"
                                 required
                             >
-                            <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Cadastrar</button>
+                            <div class="d-grid gap-2 mb-2">
+                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Entrar</button>
                             </div>
+                            Já tem uma conta? <a href="./login.jsp" class="text-decoration-none">Fazer Login</a>
                         </form>
                     </div>
                 </div>
