@@ -69,8 +69,9 @@
                                 name="password"
                                 required
                             >
+                            <p class="text-center">Já possui cadastro? <a href="./login.jsp" class="text-decoration-none">Entre</a></p>
                             <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Cadastrar</button>
+                            <button type="submit" class="btn btn-secondary btn-blcok mt-2">Cadastrar</button>
                             </div>
                         </form>
                     </div>

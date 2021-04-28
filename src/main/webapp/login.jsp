@@ -37,7 +37,7 @@
                                 name="password"
                                 required
                             >
-                            Não tem uma conta? <a href="./login.jsp" class="text-decoration-none">Cadastre-se</a>
+                            <p>Não possui uma conta? <a href="./register.jsp" class="text-decoration-none">Cadastre-se</a></p>
                             <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-secondary btn-block mt-2">Entrar</button>
                             </div>
