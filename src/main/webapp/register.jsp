@@ -20,13 +20,37 @@
                 <div class="card-body bg-dark text-white">
                     <h1 class="card-title text-center mb-4">CADASTRO</h1>
                     <div class="card-text">
-                        <form class="p-2" align="start" action="RegisterClient" method="POST">
-                            <label class="mb-2" for="inputPassword">Nome</label>
+                        <form class="mb-2" align="start" action="RegisterClient" method="POST">
+                            <label class="mb-2" for="inputName">Nome</label>
                             <input type="text"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
                                 id="inputName"
                                 placeholder="Insira seu nome"
                                 name="name"
+                                required
+                            >
+                            <label class="mb-2" for="inputPhone">Telefone</label>
+                            <input type="number"
+                                class="form-control form-control-sm mb-4 bg-dark text-white"
+                                id="inputPhone"
+                                placeholder="Insira o seu telefone"
+                                name="phone"
+                                required
+                            >
+                            <label class="mb-2" for="inputStreet">Rua</label>
+                            <input type="text"
+                                class="form-control form-control-sm mb-4 bg-dark text-white"
+                                id="inputStreet"
+                                placeholder="Insira o nome da rua"
+                                name="street"
+                                required
+                            >
+                            <label class="mb-2" for="inputZipCode">CEP</label>
+                            <input type="number"
+                                class="form-control form-control-sm mb-4 bg-dark text-white"
+                                id="inputZipCode"
+                                placeholder="Insira o CEP"
+                                name="zipCode"
                                 required
                             >
                             <label class="mb-2" for="inputEmail">Email</label>
@@ -40,13 +64,13 @@
                             <label class="mb-2" for="inputPassword">Senha</label>
                             <input type="password"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
-                                id="inputPasword"
+                                id="inputPassword"
                                 placeholder="Insira sua senha"
                                 name="password"
                                 required
                             >
                             <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Entrar</button>
+                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Cadastrar</button>
                             </div>
                         </form>
                     </div>
