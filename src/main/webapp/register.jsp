@@ -94,7 +94,7 @@
                                 required
                             >
                             <div class="d-grid gap-2 mb-2">
-                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Entrar</button>
+                            <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Cadastrar</button>
                             </div>
                             Já tem uma conta? <a href="./login.jsp" class="text-decoration-none">Fazer Login</a>
                         </form>
