@@ -1,6 +1,7 @@
 package com.facimp.entitys;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
