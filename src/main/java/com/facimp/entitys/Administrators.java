@@ -45,7 +45,7 @@ public class Administrators implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 255)
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAdministrator")
     private Collection<Products> productsCollection;
