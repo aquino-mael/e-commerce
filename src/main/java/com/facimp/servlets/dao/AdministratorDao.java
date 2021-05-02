@@ -6,11 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import javax.sql.DataSource;
 
-public class AdministradorsDao {
+public class AdministratorDao {
     
     private final DataSource dataSource;
     
-    public AdministradorsDao(DataSource dataSource){
+    public AdministratorDao(DataSource dataSource){
         this.dataSource = dataSource;
     }
     
