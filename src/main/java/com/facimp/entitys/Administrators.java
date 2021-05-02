@@ -122,5 +122,13 @@ public class Administrators implements Serializable {
     public String toString() {
         return "com.facimp.entitys.Administrators[ id=" + id + " ]";
     }
+
+    public void setId(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setNome(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
