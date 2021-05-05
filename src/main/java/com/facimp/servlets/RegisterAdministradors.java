@@ -24,29 +24,34 @@ public class RegisterAdministradors extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         
-        Administrators administrador =  new Administrators();
-        ArrayList<Products> products = new ArrayList();
-        
-        // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
-        administrador.setName(req.getParameter("name"));
-        administrador.setEmail(req.getParameter("email"));
-        administrador.setPassword(req.getParameter("password"));
-        administrador.setProductsCollection(products);
-  
-        // Inicialização da Percistence Unit
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
-        EntityManager manager = factory.createEntityManager();
-        
-        // Persistêcia dos dados do cliente na tabela
-        manager.getTransaction().begin();
-        manager.persist(administrador);
-        manager.getTransaction().commit();
-        
-        // Encerramento das conexões
-        manager.close();
-        factory.close();
-        
-        res.sendRedirect("/");
+        try {
+            Administrators administrador =  new Administrators();
+            ArrayList<Products> products = new ArrayList();
+
+            // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
+            administrador.setName(req.getParameter("name"));
+            administrador.setEmail(req.getParameter("email"));
+            administrador.setPassword(req.getParameter("password"));
+            administrador.setProductsCollection(products);
+
+            // Inicialização da Percistence Unit
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
+            EntityManager manager = factory.createEntityManager();
+
+            // Persistêcia dos dados do cliente na tabela
+            manager.getTransaction().begin();
+            manager.persist(administrador);
+            manager.getTransaction().commit();
+
+            // Encerramento das conexões
+            manager.close();
+            factory.close();
+
+            res.sendRedirect("/e-commerce");
+        } catch(Exception e) {
+            System.out.println(e);
+            res.sendRedirect("/register.jsp");
+        }
     }
 
 }

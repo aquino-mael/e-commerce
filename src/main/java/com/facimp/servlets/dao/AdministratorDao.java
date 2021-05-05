@@ -27,7 +27,7 @@ public class AdministratorDao {
                 Administrators administrator = new Administrators();
                 
                 administrator.setId(result.getInt("id"));
-                administrator.setNome(result.getString("nome"));
+                administrator.setName(result.getString("nome"));
                 administrator.setEmail(result.getString("email"));
                 administrator.setPassword(result.getString("password"));
                 
