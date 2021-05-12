@@ -1,7 +1,7 @@
 package com.facimp.entitys;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,14 +16,19 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "administrators")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Administrators.findAll", query = "SELECT a FROM Administrators a"),
     @NamedQuery(name = "Administrators.findById", query = "SELECT a FROM Administrators a WHERE a.id = :id"),
     @NamedQuery(name = "Administrators.findByName", query = "SELECT a FROM Administrators a WHERE a.name = :name"),
-    @NamedQuery(name = "Administrators.findByEmail", query = "SELECT a FROM Administrators a WHERE a.email = :email")})
+    @NamedQuery(name = "Administrators.findByEmail", query = "SELECT a FROM Administrators a WHERE a.email = :email"),
+    @NamedQuery(name = "Administrators.findByPassword", query = "SELECT a FROM Administrators a WHERE a.password = :password"),
+    @NamedQuery(name = "Administrators.findByEmailAndPassword", query = "SELECT a FROM Administrators a WHERE a.email = :email AND a.password = :password")})
 public class Administrators implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -34,7 +39,7 @@ public class Administrators implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
@@ -45,25 +50,32 @@ public class Administrators implements Serializable {
     private String email;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 255)
+    @Column(name = "password")
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAdministrator")
-    private Collection<Products> productsCollection;
+    private List<Products> productsList;
 
-    public Administrators() {}
+    public Administrators() {
+    }
 
     public Administrators(Integer id) {
         this.id = id;
     }
 
-    public Administrators(Integer id, String name, String email) {
+    public Administrators(Integer id, String name, String email, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -81,21 +93,22 @@ public class Administrators implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     public String getPassword() {
-        return this.password;
+        return password;
     }
-    
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public Collection<Products> getProductsCollection() {
-        return productsCollection;
+    @XmlTransient
+    public List<Products> getProductsList() {
+        return productsList;
     }
 
-    public void setProductsCollection(Collection<Products> productsCollection) {
-        this.productsCollection = productsCollection;
+    public void setProductsList(List<Products> productsList) {
+        this.productsList = productsList;
     }
 
     @Override
@@ -121,14 +134,6 @@ public class Administrators implements Serializable {
     @Override
     public String toString() {
         return "com.facimp.entitys.Administrators[ id=" + id + " ]";
-    }
-
-    public void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setNome(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

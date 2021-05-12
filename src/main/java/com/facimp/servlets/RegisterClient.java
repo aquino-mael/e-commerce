@@ -1,5 +1,7 @@
 package com.facimp.servlets;
 
+import com.facimp.dao.ClientDao;
+import com.facimp.dao.implementers.ClientDaoImplementer;
 import com.facimp.entitys.Clients;
 import java.io.IOException;
 import java.util.Calendar;
@@ -21,33 +23,40 @@ public class RegisterClient extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         
-        Clients client =  new Clients();
-        
-        // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
-        client.setName(req.getParameter("name"));
-        client.setEmail(req.getParameter("email"));
-        client.setPhone(req.getParameter("phone"));
-        client.setStreet(req.getParameter("street") + ", número " + req.getParameter("number"));
-        client.setDistrict(req.getParameter("district"));
-        client.setZipCode(Integer.parseInt(req.getParameter("zipCode")));
-        client.setUf(req.getParameter("uf"));
-        client.setPassword(req.getParameter("password"));
-        client.setFinishDate(Calendar.getInstance().getTime());
-        
-        // Inicialização da Percistence Unit
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
-        EntityManager manager = factory.createEntityManager();
-        
-        // Persistêcia dos dados do cliente na tabela
-        manager.getTransaction().begin();
-        manager.persist(client);
-        manager.getTransaction().commit();
-        
-        // Encerramento das conexões
-        manager.close();
-        factory.close();
-        
-        res.sendRedirect("/");
+        try {
+            Clients client =  new Clients();
+
+            // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
+            client.setName(req.getParameter("name"));
+            client.setEmail(req.getParameter("email").trim());
+            client.setPhone(req.getParameter("phone"));
+            client.setStreet(req.getParameter("street") + ", número " + req.getParameter("number"));
+            client.setDistrict(req.getParameter("district"));
+            client.setZipCode(Integer.parseInt(req.getParameter("zipCode")));
+            client.setUf(req.getParameter("uf"));
+            client.setPassword(req.getParameter("password").trim());
+            client.setFinishDate(Calendar.getInstance().getTime());
+
+            // Inicialização da Percistence Unit
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
+            EntityManager manager = factory.createEntityManager();
+            
+            ClientDao clientDao = new ClientDaoImplementer(manager);
+
+            // Persistêcia dos dados do cliente na tabela
+            manager.getTransaction().begin();
+            clientDao.insert(client);
+            manager.getTransaction().commit();
+
+            // Encerramento das conexões
+            manager.close();
+            factory.close();
+
+            res.sendRedirect("/e-commerce");
+        } catch(IOException e) {
+            log(e.getMessage());
+            res.sendRedirect("/register.jsp");
+        }
     }
 
 }

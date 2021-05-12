@@ -1,7 +1,7 @@
 package com.facimp.entitys;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,9 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "categories")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Categories.findAll", query = "SELECT c FROM Categories c"),
     @NamedQuery(name = "Categories.findById", query = "SELECT c FROM Categories c WHERE c.id = :id"),
@@ -32,11 +35,11 @@ public class Categories implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 30)
+    @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCatagory")
-    private Collection<Products> productsCollection;
+    private List<Products> productsList;
 
     public Categories() {
     }
@@ -54,6 +57,10 @@ public class Categories implements Serializable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -62,12 +69,13 @@ public class Categories implements Serializable {
         this.name = name;
     }
 
-    public Collection<Products> getProductsCollection() {
-        return productsCollection;
+    @XmlTransient
+    public List<Products> getProductsList() {
+        return productsList;
     }
 
-    public void setProductsCollection(Collection<Products> productsCollection) {
-        this.productsCollection = productsCollection;
+    public void setProductsList(List<Products> productsList) {
+        this.productsList = productsList;
     }
 
     @Override
@@ -79,6 +87,7 @@ public class Categories implements Serializable {
 
     @Override
     public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Categories)) {
             return false;
         }
