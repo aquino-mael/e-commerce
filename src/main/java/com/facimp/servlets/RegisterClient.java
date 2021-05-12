@@ -1,5 +1,7 @@
 package com.facimp.servlets;
 
+import com.facimp.dao.ClientDao;
+import com.facimp.dao.implementers.ClientDaoImplementer;
 import com.facimp.entitys.Clients;
 import java.io.IOException;
 import java.util.Calendar;
@@ -26,22 +28,24 @@ public class RegisterClient extends HttpServlet {
 
             // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
             client.setName(req.getParameter("name"));
-            client.setEmail(req.getParameter("email"));
+            client.setEmail(req.getParameter("email").trim());
             client.setPhone(req.getParameter("phone"));
             client.setStreet(req.getParameter("street") + ", número " + req.getParameter("number"));
             client.setDistrict(req.getParameter("district"));
             client.setZipCode(Integer.parseInt(req.getParameter("zipCode")));
             client.setUf(req.getParameter("uf"));
-            client.setPassword(req.getParameter("password"));
+            client.setPassword(req.getParameter("password").trim());
             client.setFinishDate(Calendar.getInstance().getTime());
 
             // Inicialização da Percistence Unit
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
             EntityManager manager = factory.createEntityManager();
+            
+            ClientDao clientDao = new ClientDaoImplementer(manager);
 
             // Persistêcia dos dados do cliente na tabela
             manager.getTransaction().begin();
-            manager.persist(client);
+            clientDao.insertClient(client);
             manager.getTransaction().commit();
 
             // Encerramento das conexões
@@ -49,8 +53,8 @@ public class RegisterClient extends HttpServlet {
             factory.close();
 
             res.sendRedirect("/e-commerce");
-        } catch(Exception e) {
-            System.out.println(e.getMessage());
+        } catch(IOException e) {
+            log(e.getMessage());
             res.sendRedirect("/register.jsp");
         }
     }
