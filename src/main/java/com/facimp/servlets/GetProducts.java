@@ -2,6 +2,7 @@ package com.facimp.servlets;
 
 import com.facimp.dao.ProductDao;
 import com.facimp.dao.implementers.ProductDaoImplementer;
+import com.facimp.globals.Globals;
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +22,13 @@ public class GetProducts extends HttpServlet {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
         EntityManager manager = factory.createEntityManager();
         
-        ProductDao productDao = new ProductDaoImplementer(manager);
+        try {
+            ProductDao productDao = new ProductDaoImplementer(manager);
+            request.setAttribute("products", productDao.all());
+            
+            response.sendRedirect(request.getContextPath());
+        } catch (IOException e) {
+            log(e.getMessage());
+        }
     }
 }

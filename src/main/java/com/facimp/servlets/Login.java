@@ -17,16 +17,14 @@ import javax.persistence.Persistence;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
     
-    private EntityManager manager;
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Inicialização da Percistence Unit
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
-        this.manager = factory.createEntityManager();
+        EntityManager manager = factory.createEntityManager();
         
-        ClientDao clientDao = new ClientDaoImplementer(this.manager);
+        ClientDao clientDao = new ClientDaoImplementer(manager);
         Clients client;
         
         try {
@@ -34,11 +32,7 @@ public class Login extends HttpServlet {
                 request.getParameter("email").trim(),
                 request.getParameter("password").trim()
             );
-            
-            factory.close();
-            this.manager.close();
-            
-            response.sendRedirect("/e-commerce");
+            response.sendRedirect(request.getContextPath());
         } catch(IOException err) {
             log("Authentication error: " + err.getMessage());
             response.setStatus(401);
