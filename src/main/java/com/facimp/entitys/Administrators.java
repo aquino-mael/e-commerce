@@ -19,10 +19,6 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author interisk
- */
 @Entity
 @Table(name = "administrators")
 @XmlRootElement
@@ -31,7 +27,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Administrators.findById", query = "SELECT a FROM Administrators a WHERE a.id = :id"),
     @NamedQuery(name = "Administrators.findByName", query = "SELECT a FROM Administrators a WHERE a.name = :name"),
     @NamedQuery(name = "Administrators.findByEmail", query = "SELECT a FROM Administrators a WHERE a.email = :email"),
-    @NamedQuery(name = "Administrators.findByPassword", query = "SELECT a FROM Administrators a WHERE a.password = :password")})
+    @NamedQuery(name = "Administrators.findByPassword", query = "SELECT a FROM Administrators a WHERE a.password = :password"),
+    @NamedQuery(name = "Administrators.findByEmailAndPassword", query = "SELECT a FROM Administrators a WHERE a.email = :email AND a.password = :password")})
 public class Administrators implements Serializable {
 
     private static final long serialVersionUID = 1L;
