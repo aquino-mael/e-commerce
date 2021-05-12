@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.facimp.dao.implementers;
 
 import com.facimp.dao.ClientDao;
@@ -10,10 +5,6 @@ import com.facimp.entitys.Clients;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-/**
- *
- * @author interisk
- */
 public class ClientDaoImplementer implements ClientDao {
     
     EntityManager manager;
@@ -23,27 +14,27 @@ public class ClientDaoImplementer implements ClientDao {
     }
 
     @Override
-    public void insertClient(Clients client) {
+    public void insert(Clients client) {
         manager.persist(client);
     }
 
     @Override
-    public Clients getClient(int id) {
-        return allClients().get(id);
+    public Clients select(int id) {
+        return all().get(id);
     }
 
     @Override
-    public void deleteClient(int id) {
-        manager.remove(getClient(id));
+    public void delete(int id) {
+        manager.remove(select(id));
     }
 
     @Override
-    public void updateClient(Clients client) {
+    public void update(Clients client) {
         manager.merge(client);
     }
 
     @Override
-    public List<Clients> allClients() {
+    public List<Clients> all() {
         return manager.createQuery("SELECT c FROM Clients c", Clients.class).getResultList();
     }
 
