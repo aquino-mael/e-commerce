@@ -45,7 +45,7 @@ public class RegisterClient extends HttpServlet {
 
             // Persistêcia dos dados do cliente na tabela
             manager.getTransaction().begin();
-            clientDao.insertClient(client);
+            clientDao.insert(client);
             manager.getTransaction().commit();
 
             // Encerramento das conexões
