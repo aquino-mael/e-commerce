@@ -12,5 +12,7 @@ public interface ClientDao {
     
     public void updateClient(Clients client);
     
+    public Clients authenticate(String email, String password);
+    
     public List<Clients> allClients();
 }
