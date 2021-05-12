@@ -1,7 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.facimp.entitys;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,9 +20,16 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author interisk
+ */
 @Entity
 @Table(name = "carts")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Carts.findAll", query = "SELECT c FROM Carts c"),
     @NamedQuery(name = "Carts.findById", query = "SELECT c FROM Carts c WHERE c.id = :id")})
@@ -33,7 +45,7 @@ public class Carts implements Serializable {
     @ManyToOne(optional = false)
     private Clients idClient;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idCart")
-    private Collection<RelProductsList> relProductsListCollection;
+    private List<RelProductsList> relProductsListList;
 
     public Carts() {
     }
@@ -46,6 +58,10 @@ public class Carts implements Serializable {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Clients getIdClient() {
         return idClient;
     }
@@ -54,12 +70,13 @@ public class Carts implements Serializable {
         this.idClient = idClient;
     }
 
-    public Collection<RelProductsList> getRelProductsListCollection() {
-        return relProductsListCollection;
+    @XmlTransient
+    public List<RelProductsList> getRelProductsListList() {
+        return relProductsListList;
     }
 
-    public void setRelProductsListCollection(Collection<RelProductsList> relProductsListCollection) {
-        this.relProductsListCollection = relProductsListCollection;
+    public void setRelProductsListList(List<RelProductsList> relProductsListList) {
+        this.relProductsListList = relProductsListList;
     }
 
     @Override

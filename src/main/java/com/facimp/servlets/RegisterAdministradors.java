@@ -5,6 +5,7 @@ import com.facimp.entitys.Administrators;
 import com.facimp.entitys.Products;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -26,13 +27,13 @@ public class RegisterAdministradors extends HttpServlet {
         
         try {
             Administrators administrador =  new Administrators();
-            ArrayList<Products> products = new ArrayList();
+            List<Products> products = new ArrayList();
 
             // Definição dos parâmetros do cliente de acordo com o formulário de cadastro.
             administrador.setName(req.getParameter("name"));
             administrador.setEmail(req.getParameter("email"));
             administrador.setPassword(req.getParameter("password"));
-            administrador.setProductsCollection(products);
+            administrador.setProductsList(products);
 
             // Inicialização da Percistence Unit
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");

@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.facimp.entitys;
 
 import java.io.Serializable;
@@ -12,9 +17,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ *
+ * @author interisk
+ */
 @Entity
 @Table(name = "rel_products_list")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "RelProductsList.findAll", query = "SELECT r FROM RelProductsList r"),
     @NamedQuery(name = "RelProductsList.findById", query = "SELECT r FROM RelProductsList r WHERE r.id = :id")})
@@ -26,12 +37,12 @@ public class RelProductsList implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @JoinColumn(name = "id_product", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Products idProduct;
     @JoinColumn(name = "id_cart", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Carts idCart;
+    @JoinColumn(name = "id_product", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Products idProduct;
 
     public RelProductsList() {
     }
@@ -48,20 +59,20 @@ public class RelProductsList implements Serializable {
         this.id = id;
     }
 
-    public Products getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(Products idProduct) {
-        this.idProduct = idProduct;
-    }
-
     public Carts getIdCart() {
         return idCart;
     }
 
     public void setIdCart(Carts idCart) {
         this.idCart = idCart;
+    }
+
+    public Products getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(Products idProduct) {
+        this.idProduct = idProduct;
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.facimp.entitys.Categories;
 import com.facimp.entitys.Products;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -21,10 +22,10 @@ public class RegisterCategory extends HttpServlet {
             throws ServletException, IOException {
         Categories category = new Categories();
         
-        ArrayList<Products> productList = new ArrayList();
+        List<Products> productList = new ArrayList();
         
         category.setName(request.getParameter("name"));
-        category.setProductsCollection(productList);
+        category.setProductsList(productList);
         
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
         EntityManager manager = factory.createEntityManager();

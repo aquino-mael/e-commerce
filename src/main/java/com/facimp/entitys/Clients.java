@@ -1,8 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.facimp.entitys;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,11 +22,17 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author interisk
+ */
 @Entity
 @Table(name = "clients")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Clients.findAll", query = "SELECT c FROM Clients c"),
     @NamedQuery(name = "Clients.findById", query = "SELECT c FROM Clients c WHERE c.id = :id"),
@@ -32,7 +43,8 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Clients.findByZipCode", query = "SELECT c FROM Clients c WHERE c.zipCode = :zipCode"),
     @NamedQuery(name = "Clients.findByDistrict", query = "SELECT c FROM Clients c WHERE c.district = :district"),
     @NamedQuery(name = "Clients.findByUf", query = "SELECT c FROM Clients c WHERE c.uf = :uf"),
-    @NamedQuery(name = "Clients.findByPhone", query = "SELECT c FROM Clients c WHERE c.phone = :phone")})
+    @NamedQuery(name = "Clients.findByPhone", query = "SELECT c FROM Clients c WHERE c.phone = :phone"),
+    @NamedQuery(name = "Clients.findByPassword", query = "SELECT c FROM Clients c WHERE c.password = :password")})
 public class Clients implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -41,64 +53,54 @@ public class Clients implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "name")
     private String name;
-    
-    @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "email")
     private String email;
-    
     @Basic(optional = false)
     @NotNull
     @Column(name = "finish_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finishDate;
-    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "street")
     private String street;
-    
     @Basic(optional = false)
     @NotNull
     @Column(name = "zip_code")
     private int zipCode;
-    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "district")
     private String district;
-    
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 2)
+    @Size(min = 1, max = 255)
     @Column(name = "uf")
     private String uf;
-    
-    @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone format, should be as xx xxxxx-xxxx")
+    // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 17)
+    @Size(min = 1, max = 255)
     @Column(name = "phone")
     private String phone;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClient")
-    private Collection<Carts> cartsCollection;
-    
-    @NotNull
     @Basic(optional = false)
-    @Size(min=1, max=255)
-    @Column(name="password")
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "password")
     private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idClient")
+    private List<Carts> cartsList;
 
     public Clients() {
     }
@@ -107,7 +109,7 @@ public class Clients implements Serializable {
         this.id = id;
     }
 
-    public Clients(Integer id, String name, String email, Date finishDate, String street, int zipCode, String district, String uf, String phone) {
+    public Clients(Integer id, String name, String email, Date finishDate, String street, int zipCode, String district, String uf, String phone, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -117,12 +119,13 @@ public class Clients implements Serializable {
         this.district = district;
         this.uf = uf;
         this.phone = phone;
+        this.password = password;
     }
 
     public Integer getId() {
         return id;
     }
-    
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -191,22 +194,23 @@ public class Clients implements Serializable {
         this.phone = phone;
     }
 
-    public Collection<Carts> getCartsCollection() {
-        return cartsCollection;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCartsCollection(Collection<Carts> cartsCollection) {
-        this.cartsCollection = cartsCollection;
-    }
-    
     public void setPassword(String password) {
-        this.password = password ;
+        this.password = password;
     }
-    
-     public String getPassword() {
-        return this.password;
-     }
-        
+
+    @XmlTransient
+    public List<Carts> getCartsList() {
+        return cartsList;
+    }
+
+    public void setCartsList(List<Carts> cartsList) {
+        this.cartsList = cartsList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
