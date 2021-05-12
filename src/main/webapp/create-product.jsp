@@ -37,12 +37,28 @@
                                 name="price"
                                 required
                             >
-                            <label class="mb-2" for="inputCategory">Categoria</label>
+                            <label class="mb-2" for="inputType">Tipo</label>
                             <input type="text"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
-                                id="inputCategory"
-                                placeholder="Categoria"
-                                name="category"
+                                id="inputType"
+                                placeholder="Tipo"
+                                name="type"
+                                required
+                            >
+                            <label class="mb-2" for="inputSize">Tamanho</label>
+                            <input type="text"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputSize"
+                                placeholder="Tamanho"
+                                name="size"
+                                required
+                            >
+                            <label class="mb-2" for="inputColor">Cor</label>
+                            <input type="text"
+                                class="form-control form-control-sm mb-4 bg-transparent text-white"
+                                id="inputColor"
+                                placeholder="Cor"
+                                name="color"
                                 required
                             >
                             <label class="mb-2" for="inputStatus">Status</label>
