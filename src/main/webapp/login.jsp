@@ -20,7 +20,7 @@
                 <div class="card-body bg-dark text-white">
                     <h1 class="card-title text-center mb-4">Login</h1>
                     <div class="card-text">
-                        <form class="p-2" align="start" action="login" method="POST">
+                        <form class="p-2" align="start" action="Login" method="POST">
                             <label class="mb-2" for="inputEmail">Email</label><br>
                             <input type="email"
                                 class="form-control form-control-sm mb-4 bg-transparent text-white"
