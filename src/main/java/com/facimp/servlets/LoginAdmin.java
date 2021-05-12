@@ -32,10 +32,7 @@ public class LoginAdmin extends HttpServlet {
                 request.getParameter("password").trim()
             );
             
-            factory.close();
-            manager.close();
-            
-            response.sendRedirect("/e-commerce");
+            response.sendRedirect(request.getContextPath());
         } catch(IOException err) {
             log("Authentication error: " + err.getMessage());
         } catch(Exception err) {
