@@ -22,6 +22,9 @@ public class RegisterClient extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
+        // Inicialização da Percistence Unit
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
+        EntityManager manager = factory.createEntityManager();
         
         try {
             Clients client =  new Clients();
@@ -36,10 +39,6 @@ public class RegisterClient extends HttpServlet {
             client.setUf(req.getParameter("uf"));
             client.setPassword(req.getParameter("password").trim());
             client.setFinishDate(Calendar.getInstance().getTime());
-
-            // Inicialização da Percistence Unit
-            EntityManagerFactory factory = Persistence.createEntityManagerFactory("ecommerce");
-            EntityManager manager = factory.createEntityManager();
             
             ClientDao clientDao = new ClientDaoImplementer(manager);
 
@@ -48,11 +47,7 @@ public class RegisterClient extends HttpServlet {
             clientDao.insert(client);
             manager.getTransaction().commit();
 
-            // Encerramento das conexões
-            manager.close();
-            factory.close();
-
-            res.sendRedirect("/e-commerce");
+            res.sendRedirect(req.getContextPath());
         } catch(IOException e) {
             log(e.getMessage());
             res.sendRedirect("/register.jsp");

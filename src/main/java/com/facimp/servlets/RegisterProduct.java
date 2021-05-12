@@ -44,7 +44,7 @@ public class RegisterProduct extends HttpServlet {
         manager.close();
         factory.close();
 
-        response.sendRedirect("/e-commerce");
+        response.sendRedirect(request.getContextPath());
         
     }
 
