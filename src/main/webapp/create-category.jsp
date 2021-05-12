@@ -33,6 +33,11 @@
                             <button type="submit" class="btn btn-outline-secondary btn-blcok mt-2">Criar Categoria</button>
                             </div>
                         </form>
+                        <a href="/e-commerce/dashboard.jsp" class="text-decoration-none">
+                       <div class="d-grid gap-2">
+                       <button class="btn btn-outline-secondary btn-blcok mt-2">Cancelar</button>
+                       </div>
+                       </a>
                     </div>
                 </div>
             </div>

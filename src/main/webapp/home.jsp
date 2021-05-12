@@ -73,14 +73,14 @@
                             </svg>
                         </button>
                     </form>
-                    <a class="nav-link text-white" href="/e-commerce">
+                    <a class="nav-link text-white" href="/e-commerce/administrator.jsp">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
                             <path
                                 fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
                             <path
                                 fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
                         </svg>
-                        Login
+                        Admin
                     </a>
                 </div>
             </div>
@@ -90,12 +90,20 @@
 
         <div class="container-fluid p-5">
             <div class="jumbotron text-white">
-                <h1 class="display-3">Call to action</h1>
+                <h1 class="display-3">Camisas Masculinas</h1>
                 <p class="lead">
-                    <% out.println("default phrase"); %>
+                    <% out.println("Realize o login para poder realizar uma compra"); %>
                 </p>
                 <p class="lead mt-5">
-                    <a class="btn btn-secondary btn-lg" href="Jumbo action link" role="button">Button</a>
+                    <a class="btn btn-secondary btn-lg" href="/e-commerce" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+                            <path
+                                fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
+                            <path
+                                fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                        </svg>
+                        Login
+                    </a>
                 </p>
             </div>
         </div>
@@ -108,8 +116,8 @@
             <div class="row hidden-md-up">
                 <div class="col-md-3 col-sm-6 col-6 mb-4">
                     <div class="card bg-transparent text-white">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5qHGwsrobSFmmaDyZHs9NP_cWtGCLPF25Pg&usqp=CAU"
-                            class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block" alt="..."
+                        <img src="./assets/camisa-1.png"
+                            class="card-img-top img-fluid rounded mx-auto d-block" alt="..."
                             style="max-width: 20em;">
                         <div class="card-body">
                             <h6 class="card-title text-center">Camisa preta</h6>
@@ -129,7 +137,7 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 mb-4">
                     <div class="card bg-transparent text-white">
-                        <img src="./assets/camisa-1.png"
+                        <img src="./assets/camisa-2.png"
                             class="card-img-top img-fluid rounded mx-auto d-block" alt="..."
                             style="max-width: 18em;">
                         <div class="card-body p-0">
@@ -150,8 +158,8 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 mb-4">
                     <div class="card bg-transparent text-white">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5qHGwsrobSFmmaDyZHs9NP_cWtGCLPF25Pg&usqp=CAU"
-                            class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block" alt="..."
+                        <img src="./assets/camisa-3.png"
+                            class="card-img-top img-fluid rounded mx-auto d-block" alt="..."
                             style="max-width: 20em;">
                         <div class="card-body">
                             <h6 class="card-title text-center">Camisa preta</h6>
@@ -171,8 +179,8 @@
                 </div>
                 <div class="col-md-3 col-sm-6 col-6 mb-4">
                     <div class="card bg-transparent text-white">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5qHGwsrobSFmmaDyZHs9NP_cWtGCLPF25Pg&usqp=CAU"
-                            class="card-img-top img-fluid img-thumbnail rounded mx-auto d-block" alt="..."
+                        <img src="./assets/camisa-4.png"
+                            class="card-img-top img-fluid rounded mx-auto d-block" alt="..."
                             style="max-width: 20em;">
                         <div class="card-body">
                             <h6 class="card-title text-center">Camisa preta</h6>

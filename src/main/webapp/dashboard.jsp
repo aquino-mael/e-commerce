@@ -18,13 +18,15 @@
         style="background-image: url('https://soulsergios.com.br/wp-content/uploads/2018/03/home-banner-divinopolis-moda-masculina.jpg');background-position: top center;background-repeat: no-repeat;background-size: cover;min-height: 98vh;">
 
         <!-- Apresentation Container -->
-
         <div align="center" class="container-fluid p-5">
                 <p class="lead mt-5">
                     <a class="btn btn-secondary btn-lg" href="./create-category.jsp" role="button">Adicionar Categoria</a>
                 </p>
                 <p class="lead mt-5">
                     <a class="btn btn-secondary btn-lg" href="./create-product.jsp" role="button">Adicionar Produto</a>
+                </p>
+                <p class="lead mt-5">
+                    <a class="btn btn-secondary btn-lg" href="./home.jsp" role="button">Site Oficial</a>
                 </p>
         </div>
     </header>
